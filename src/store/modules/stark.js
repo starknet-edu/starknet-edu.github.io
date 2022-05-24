@@ -1,4 +1,4 @@
-import { getStarknet } from "@argent/get-starknet";
+import { getStarknet } from "get-starknet";
 // import { stark } from "starknet";
 
 const state = {
@@ -22,7 +22,7 @@ const actions = {
     async l2ConnectWallet({commit}) {
         let starknet = getStarknet({ showModal: true });
         let [walletAddress] = await starknet.enable();
-        
+
         if (starknet.isConnected) {
             commit("setl2ActiveAccount", walletAddress);
             commit("setl2ActiveSigner", starknet.signer);
